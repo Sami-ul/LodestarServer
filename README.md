@@ -21,7 +21,6 @@
 - In this endpoint, give the latitude and longitude of the user
 - This will return to you a openweathermap response with weather information in imperial units(Farenheit), it also has a key for an image which will need to be displayed using url
 ## IPInfo
-- May be deprecated
 - Provide the prebuilt url as a "url" parameter and this will return the full body respose
 ## BingMaps
 - Provide the full url as a "url" parameter
