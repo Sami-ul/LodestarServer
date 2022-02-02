@@ -1,5 +1,8 @@
 # Server Documentation
 
+- This is a server made for the FBLA 2022 Coding and Programming competition
+- It is called by a C# front-end to get api data securely
+[Visit Server](https://TouristServer.sami200.repl.co)
 ## Recommendations Endpoint
 - https://TouristServer.sami200.repl.co/recommendations?cpuserialid=1234567890&long=10&lat=11
 - In this endpoint, specify the CPU Serial ID for database. And specify the current latitude and longitude, preferably recieved from the built-in location sensor
