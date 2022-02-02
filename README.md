@@ -1,7 +1,6 @@
 # Server Documentation
 
 - [Visit Server](https://TouristServer.sami200.repl.co)
-
 - This is a server made for the FBLA 2022 Coding and Programming competition
 - It is called by a C# front-end to get api data securely
 - Has a .env file that is ignored
