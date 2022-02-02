@@ -594,3 +594,9 @@ Date, Time, Endpoint, Url
 2/2/2022, 4:26:19 AM, weather, http://touristserver.sami200.repl.co/weather?long=-104.9833761&lat=39.7370192
 2/2/2022, 4:26:22 AM, weather, http://touristserver.sami200.repl.co/weather?long=-104.9833761&lat=39.7370192
 2/2/2022, 4:26:25 AM, weather, http://touristserver.sami200.repl.co/weather?long=-104.9833761&lat=39.7370192
+2/2/2022, 4:33:38 AM, ipinfo, http://touristserver.sami200.repl.co/ipinfo?url=https%3a%2f%2fipinfo.io%2f76.25.155.188%2fjson
+2/2/2022, 4:33:39 AM, recommendations, http://touristserver.sami200.repl.co/recommendations?cpuserialid=BFEBFBFF000906EA&long=-104.9847&lat=39.7392
+2/2/2022, 4:38:55 AM, ipinfo, http://touristserver.sami200.repl.co/ipinfo?url=https%3a%2f%2fipinfo.io%2f76.25.155.188%2fjson
+2/2/2022, 4:38:56 AM, recommendations, http://touristserver.sami200.repl.co/recommendations?cpuserialid=BFEBFBFF000906EA&long=-104.9847&lat=39.7392
+2/2/2022, 4:39:01 AM, ipinfo, http://touristserver.sami200.repl.co/ipinfo?url=https%3a%2f%2fipinfo.io%2f73.153.177.88%2fjson
+2/2/2022, 4:39:03 AM, recommendations, http://touristserver.sami200.repl.co/recommendations?cpuserialid=BFEBFBFF000706E5&long=-104.8769&lat=39.5792
