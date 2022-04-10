@@ -38,6 +38,10 @@ const defaultData = {
 // The endpoint called to procure attractions based on user filters (remember to update the categories in the firebase db)
 // required paramters include CPU Serial ID & URL
 router.get('/geoapify', (req, res) => { // url must be encoded without api key
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
 
   var dateTime = d.toLocaleString();
@@ -89,6 +93,10 @@ router.get('/geoapify', (req, res) => { // url must be encoded without api key
 // The endpoint called during the app start
 // Required paramters include CPU Serial ID, Long, Lat
 router.get('/recommendations', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
   var dateTime = d.toLocaleString();
   var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;

@@ -9,6 +9,10 @@ const log = require('./func-logFile');
 // nearby parking
 // Required paramters include Long, Lat
 router.get('/parking', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
   var dateTime = d.toLocaleString();
   var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
@@ -34,6 +38,10 @@ router.get('/parking', (req, res) => {
 // weather api
 // Required parameters include Lat, Long
 router.get('/weather', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
   var dateTime = d.toLocaleString();
   var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
@@ -56,6 +64,10 @@ router.get('/weather', (req, res) => {
 // The endpoint used to procure the lat/long of the IP Address
 // Required parameters include URL
 router.get('/ipinfo', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
   var dateTime = d.toLocaleString();
   var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
@@ -78,6 +90,10 @@ router.get('/ipinfo', (req, res) => {
 // The endpoint used to procure the lat/long of a street address
 // Required parameters incude URL
 router.get('/bingmaps', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   var d = new Date();
   var dateTime = d.toLocaleString();
   var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
