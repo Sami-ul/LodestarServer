@@ -6,10 +6,6 @@ const fs = require('fs');
 
 // Sets up express
 const app = express();
-res.setHeader('Access-Control-Allow-Origin', '*');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 app.use(bodyParser.urlencoded({ extended: false }));
 pathWalk('./routes/');
 
