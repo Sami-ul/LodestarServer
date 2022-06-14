@@ -4,6 +4,7 @@ const router = express.Router();
 const firebase = require('firebase-admin'); // used to store user data for recommendations
 const request = require('request'); // used to make api requests
 const log = require('./func-logFile');
+const image = require('./func-getImage');
 
 // Firebase setup
 var serviceAccount = {
@@ -80,11 +81,19 @@ router.get('/geoapify', (req, res) => { // url must be encoded without api key
 
   // Appending API key to the url sent in by front end
   geoUrl = req.query['url'] + `&apiKey=${process.env['GEOAPIFY_KEY']}`;
-  request(geoUrl, { json: true }, (err, result, body) => {
+  request(geoUrl, { json: true }, async (err, result, body) => {
     try {
+      for (var i = 0; i < body['features'].length; i++) {
+        var link = await image.getImage(body['features'][i]['properties']['name']).then((data) => {
+          return data;
+        }, reason => {
+          console.error(reason)
+        });
+        body['features'][i]['properties']['imgLink'] = link;
+      }
       res.json(body); // Return body of result as json
     } catch {
-      res.send("Error");
+      res.send(err);
     }
   });
   geoUrl = null;
@@ -157,6 +166,9 @@ router.get('/recommendations', (req, res) => {
     geoUrl += "&limit=4";
     geoUrl += "&apiKey=" + process.env['GEOAPIFY_KEY'];
     request(geoUrl, { json: true }, (err, result, body) => {
+      if (err) {
+        res.error(err);
+      }
       res.json(body);
     });
   });

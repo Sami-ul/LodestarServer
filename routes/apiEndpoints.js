@@ -29,7 +29,7 @@ router.get('/parking', (req, res) => {
     try {
       res.json(body); // Return body of result as json
     } catch {
-      res.send("Error");
+      res.send(err);
     }
   });
   parkingUrl = null;
@@ -55,7 +55,7 @@ router.get('/weather', (req, res) => {
     try {
       res.json(body); // Return body of result as json
     } catch {
-      res.send("Error");
+      res.send(err);
     }
   });
   weatherUrl = null;
@@ -81,7 +81,7 @@ router.get('/ipinfo', (req, res) => {
     try {
       res.json(body); // Return body of result as json
     } catch {
-      res.send("Error");
+      res.send(err);
     }
   });
   ipUrl = null;
@@ -109,7 +109,7 @@ router.get('/bingmaps', (req, res) => {
       res.json(body['resourceSets'][0]['resources'][0]['point']['coordinates']);
     }
     catch {
-      res.send("Error");
+      res.send(err);
     }
   });
   bingMapsUrl = null;
