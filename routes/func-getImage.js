@@ -6,18 +6,30 @@ async function getImage(query) {
     q: query.replace("/\s/g", '+'),
     searchType: 'image',
     key: process.env['GOOGLE_IMAGES_API'],
-    cx: "80339b79108cd435e",
+    cx: process.env['GOOGLE_SEARCH_KEY'],
   }
-  const paramString = qs.stringify(params)
-  const url = `https://www.googleapis.com/customsearch/v1?${paramString}`;
+  let paramString = qs.stringify(params)
+  let url = `https://www.googleapis.com/customsearch/v1?${paramString}`;
   let response = await fetch(url);
-  const data = await response.json();
+  let data = await response.json();
+  let i = 2;
   try {
-    return data['items'][0]['link'];
+    while (data['error']['code'] > 0 || i <= 5) {
+      params['key'] = process.env[`GOOGLE_IMAGES_API${i}`]
+      params['cx'] = process.env[`GOOGLE_SEARCH_KEY${i}`]
+      console.log("Trying Backup Keys...");
+      paramString = qs.stringify(params)
+      url = `https://www.googleapis.com/customsearch/v1?${paramString}`;
+      response = await fetch(url);
+      data = await response.json();
+      console.log("Tried with account " + i);
+      i++;
+    }
   } catch {
-    console.log("PROBLEMATIC QUERY" + query);
-    return "NOIMG";
+    console.log("Successfully got data")
   }
+  
+  return data['items'][0]['image']['thumbnailLink'];
 }
 
 module.exports = { getImage };

@@ -165,9 +165,17 @@ router.get('/recommendations', (req, res) => {
     geoUrl += "&bias=proximity:" + long + "," + lat;
     geoUrl += "&limit=4";
     geoUrl += "&apiKey=" + process.env['GEOAPIFY_KEY'];
-    request(geoUrl, { json: true }, (err, result, body) => {
+    request(geoUrl, { json: true }, async (err, result, body) => {
       if (err) {
         res.error(err);
+      }
+      for (var i = 0; i < body['features'].length; i++) {
+        var link = await image.getImage(body['features'][i]['properties']['name']).then((data) => {
+          return data;
+        }, reason => {
+          console.error(reason)
+        });
+        body['features'][i]['properties']['imgLink'] = link;
       }
       res.json(body);
     });
