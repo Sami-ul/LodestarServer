@@ -182,6 +182,91 @@ router.get('/recommendations', (req, res) => {
   });
 });
 
+router.get('/getFavorites', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
 
+  // logging
+  var d = new Date();
+
+  var dateTime = d.toLocaleString();
+  var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
+  var endpoint = "getFavorites";
+
+
+  inputUrl = inputUrl.split(",").join("%2C");
+  log.logFile(dateTime, endpoint, inputUrl);
+
+  // favorites
+  var geoUrl;
+  let cpuSerialID = req.query['cpuserialid'];
+  ref.child(cpuSerialID).get().then((user) => {
+    if (!user.exists()) {
+      ref.child(cpuSerialID).set(defaultData);
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  let results = {
+    "favorites": [
+      
+    ]
+  };
+  let count = 0;
+  ref.child(cpuSerialID).child("favorites").get().then((snapshot) => {
+    snapshot.forEach((favorite) => {
+      results['favorites'].push(favorite.val());
+      count++;
+      //placeId - favorite.key:
+      // json with rest of stuff - favorite.val()
+    });
+    return results;
+  }).then((res1) => {
+    res.json(res1)
+  });
+});
+
+router.get('/addFavorite', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // logging
+  var d = new Date();
+
+  var dateTime = d.toLocaleString();
+  var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
+  var endpoint = "addFavorite";
+
+  inputUrl = inputUrl.split(",").join("%2C");
+  log.logFile(dateTime, endpoint, inputUrl);
+
+  // favorites
+  var geoUrl;
+  let cpuSerialID = req.query['cpuserialid'];
+  ref.child(cpuSerialID).get().then((user) => {
+    if (!user.exists()) {
+      ref.child(cpuSerialID).set(defaultData);
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  
+  let placeID = req.query['placeID'];
+  let address = req.query['address'];
+  let imgLink = decodeURI(req.query['imgLink']);
+  let lat = req.query['lat'];
+  let lon = req.query['lon'];
+  let name = req.query['name'];
+  ref.child(cpuSerialID).child("favorites").child(placeID).child("address").set(address); 
+  ref.child(cpuSerialID).child("favorites").child(placeID).child("name").set(name);  
+  ref.child(cpuSerialID).child("favorites").child(placeID).child("imgLink").set(imgLink);
+  ref.child(cpuSerialID).child("favorites").child(placeID).child("lat").set(lat);
+  ref.child(cpuSerialID).child("favorites").child(placeID).child("lon").set(lon);
+  res.send("added");
+});
 
 module.exports = router;
