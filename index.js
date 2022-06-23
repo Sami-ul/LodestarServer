@@ -6,7 +6,9 @@ const fs = require('fs');
 
 // Sets up express
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 pathWalk('./routes/');
 
 async function pathWalk(dir) {

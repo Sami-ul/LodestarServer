@@ -1,10 +1,14 @@
 const express = require('express');
-const fs = require('fs'); // file system for logging requests made for debugging purposes
 const router = express.Router();
 const firebase = require('firebase-admin'); // used to store user data for recommendations
 const request = require('request'); // used to make api requests
 const log = require('./func-logFile');
 const image = require('./func-getImage');
+const bodyParser = require('body-parser'); // middleware for express
+
+router.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // Firebase setup
 var serviceAccount = {
@@ -228,7 +232,10 @@ router.get('/getFavorites', (req, res) => {
   });
 });
 
-router.get('/addFavorite', (req, res) => {
+router.post('/addFavorite', (req, res) => {
+  /*
+
+  */
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -245,7 +252,6 @@ router.get('/addFavorite', (req, res) => {
   log.logFile(dateTime, endpoint, inputUrl);
 
   // favorites
-  var geoUrl;
   let cpuSerialID = req.query['cpuserialid'];
   ref.child(cpuSerialID).get().then((user) => {
     if (!user.exists()) {
@@ -254,13 +260,14 @@ router.get('/addFavorite', (req, res) => {
   }).catch((error) => {
     console.error(error);
   });
-  
-  let placeID = req.query['placeID'];
-  let address = req.query['address'];
-  let imgLink = decodeURI(req.query['imgLink']);
-  let lat = req.query['lat'];
-  let lon = req.query['lon'];
-  let name = req.query['name'];
+
+  body = req.body;
+  let placeID = body['placeID'];
+  let address = body['address'];
+  let imgLink = decodeURI(body['imgLink']);
+  let lat = body['lat'];
+  let lon = body['lon'];
+  let name = body['name'];
   ref.child(cpuSerialID).child("favorites").child(placeID).child("address").set(address); 
   ref.child(cpuSerialID).child("favorites").child(placeID).child("name").set(name);  
   ref.child(cpuSerialID).child("favorites").child(placeID).child("imgLink").set(imgLink);
