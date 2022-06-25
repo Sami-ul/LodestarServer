@@ -4,11 +4,10 @@ const firebase = require('firebase-admin'); // used to store user data for recom
 const request = require('request'); // used to make api requests
 const log = require('./func-logFile');
 const image = require('./func-getImage');
-const bodyParser = require('body-parser'); // middleware for express
+const bodyParser = require('body-parser'); // middleware for express\
 
-router.use(bodyParser.urlencoded({
-  extended: true
-}));
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
 // Firebase setup
 var serviceAccount = {
@@ -38,6 +37,8 @@ const defaultData = {
     "accommodation": 0,
     "tourism": 0,
     "natural": 0,
+  },
+  "favorites": {
   }
 };
 // The endpoint called to procure attractions based on user filters (remember to update the categories in the firebase db)
@@ -222,6 +223,7 @@ router.get('/getFavorites', (req, res) => {
   ref.child(cpuSerialID).child("favorites").get().then((snapshot) => {
     snapshot.forEach((favorite) => {
       results['favorites'].push(favorite.val());
+      results['favorites'][count]['placeID'] = favorite.key;
       count++;
       //placeId - favorite.key:
       // json with rest of stuff - favorite.val()
@@ -260,14 +262,13 @@ router.post('/addFavorite', (req, res) => {
   }).catch((error) => {
     console.error(error);
   });
-
   body = req.body;
   let placeID = body['placeID'];
   let address = body['address'];
-  let imgLink = decodeURI(body['imgLink']);
+  let name = body['name'];
+  let imgLink = body['imgLink'];
   let lat = body['lat'];
   let lon = body['lon'];
-  let name = body['name'];
   ref.child(cpuSerialID).child("favorites").child(placeID).child("address").set(address); 
   ref.child(cpuSerialID).child("favorites").child(placeID).child("name").set(name);  
   ref.child(cpuSerialID).child("favorites").child(placeID).child("imgLink").set(imgLink);
@@ -275,5 +276,42 @@ router.post('/addFavorite', (req, res) => {
   ref.child(cpuSerialID).child("favorites").child(placeID).child("lon").set(lon);
   res.send("added");
 });
+
+router.post('/removeFavorite', (req, res) => {
+  /*
+
+  */
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // logging
+  var d = new Date();
+
+  var dateTime = d.toLocaleString();
+  var inputUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
+  var endpoint = "removeFavorite";
+
+  inputUrl = inputUrl.split(",").join("%2C");
+  log.logFile(dateTime, endpoint, inputUrl);
+
+  // favorites
+  let cpuSerialID = req.query['cpuserialid'];
+  let placeID = req.body['placeID'];
+
+  ref.child(cpuSerialID).child("favorites").child(placeID).remove();
+  ref.child(`${cpuSerialID}/favorites`).get().then((user) => {
+    if (!user.exists()) {
+      ref.child(cpuSerialID).child('favorites');
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  console.log("Removing" + placeID);
+  res.send("removed");
+});
+
+
 
 module.exports = router;
