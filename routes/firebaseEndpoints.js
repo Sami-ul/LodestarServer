@@ -41,6 +41,8 @@ const defaultData = {
   "favorites": {
   }
 };
+
+const defaultRecs = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"McDonald's","street":"South Mines Drive","suburb":"Near South Side","city":"Chicago","county":"Cook County","state":"Illinois","postcode":"60616","country":"United States","country_code":"us","lon":-87.6158576,"lat":41.8520353,"formatted":"McDonald's, South Mines Drive, Chicago, IL 60616, United States of America","address_line1":"McDonald's","address_line2":"South Mines Drive, Chicago, IL 60616, United States of America","categories":["catering","catering.fast_food","catering.fast_food.burger"],"details":["details","details.catering","details.facilities"],"datasource":{"sourcename":"openstreetmap","attribution":"© OpenStreetMap contributors","license":"Open Database Licence","url":"https://www.openstreetmap.org/copyright"},"distance":179,"place_id":"518ebffe356ae755c059d249237e0fed4440f00103f901e54744ac0100000092030a4d63446f6e616c642773","imgLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7KVvSdbzEDyTPm0T-0UMaU953X-PUxieMNWOItw24XnRJEZdHkgGFzo0j&s"},"geometry":{"type":"Point","coordinates":[-87.6158576,41.85203530047478]}},{"type":"Feature","properties":{"name":"Connie's Pizza","street":"Freight Docks North","suburb":"Near South Side","city":"Chicago","county":"Cook County","state":"Illinois","postcode":"60616","country":"United States","country_code":"us","lon":-87.6150426,"lat":41.8522005,"formatted":"Connie's Pizza, Freight Docks North, Chicago, IL 60616, United States of America","address_line1":"Connie's Pizza","address_line2":"Freight Docks North, Chicago, IL 60616, United States of America","categories":["catering","catering.fast_food","catering.fast_food.pizza"],"details":["details.catering","details.facilities"],"datasource":{"sourcename":"openstreetmap","attribution":"© OpenStreetMap contributors","license":"Open Database Licence","url":"https://www.openstreetmap.org/copyright"},"distance":248,"place_id":"516529a3db5ce755c0594996efe714ed4440f00103f901e64744ac0100000092030e436f6e6e696527732050697a7a61","imgLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxrXS7UDASl8gMUGOSljCqeH3eA76iBctJVVfUjm3_FvNtowE40BedqKq&s"},"geometry":{"type":"Point","coordinates":[-87.6150426,41.8522005004748]}},{"type":"Feature","properties":{"name":"22nd Street Cafe","street":"Freight Docks North","suburb":"Near South Side","city":"Chicago","county":"Cook County","state":"Illinois","postcode":"60616","country":"United States","country_code":"us","lon":-87.6149913,"lat":41.8520753,"formatted":"22nd Street Cafe, Freight Docks North, Chicago, IL 60616, United States of America","address_line1":"22nd Street Cafe","address_line2":"Freight Docks North, Chicago, IL 60616, United States of America","categories":["catering","catering.cafe"],"details":[],"datasource":{"sourcename":"openstreetmap","attribution":"© OpenStreetMap contributors","license":"Open Database Licence","url":"https://www.openstreetmap.org/copyright"},"distance":251,"place_id":"51c43478045ce755c05961a2aecd10ed4440f00103f901e74744ac0100000092031032326e64205374726565742043616665","imgLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5eQJv1X6i6H76KIJXl812YMaZnIvEMvhH1bW9OMfTYJ20oXU-_R2PLQ&s"},"geometry":{"type":"Point","coordinates":[-87.61499129999999,41.85207530047479]}},{"type":"Feature","properties":{"name":"Showroom Food Hall","housenumber":"2121","street":"South Prairie Avenue","suburb":"Near South Side","city":"Chicago","county":"Cook County","state":"Illinois","postcode":"60616","country":"United States","country_code":"us","lon":-87.6203557,"lat":41.8539444,"formatted":"Showroom Food Hall, 2121 South Prairie Avenue, Chicago, IL 60616, United States of America","address_line1":"Showroom Food Hall","address_line2":"2121 South Prairie Avenue, Chicago, IL 60616, United States of America","categories":["catering","catering.restaurant"],"details":["details","details.contact"],"datasource":{"sourcename":"openstreetmap","attribution":"© OpenStreetMap contributors","license":"Open Database Licence","url":"https://www.openstreetmap.org/copyright"},"distance":307,"place_id":"51c8d864e8b3e755c0593452d40c4eed4440f00103f901d439d1780100000092031253686f77726f6f6d20466f6f642048616c6c","imgLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxLNE5YkR6Gx279JaKp82o4ve0mJ8lsxaluZlhUSDTRB7NusWbPVP12rg&s"},"geometry":{"type":"Point","coordinates":[-87.6203557,41.853944400474944]}}]}
 // The endpoint called to procure attractions based on user filters (remember to update the categories in the firebase db)
 // required paramters include CPU Serial ID & URL
 router.get('/geoapify', (req, res) => { // url must be encoded without api key
@@ -133,7 +135,7 @@ router.get('/recommendations', (req, res) => {
   let highestCategoryCount = 0;
   let secondHighestCategory = "";
   let secondHighestCategoryCount = 0;
-
+  let count = 0;
   // calculating the optimal category to recommend to the user
   ref.child(cpuSerialID).child("categories").get().then((snapshot) => {
     snapshot.forEach((category) => {
@@ -146,9 +148,12 @@ router.get('/recommendations', (req, res) => {
           secondHighestCategoryCount = category.val();
           secondHighestCategory = category.key
         }
+      } else {
+        count++;
       }
     });
 
+    if (count != 6){
     let geoUrl = "https://api.geoapify.com/v2/places/?"
     if (highestCategoryCount == 0 && secondHighestCategoryCount == 0) {
       // if the user has not used the app, and hence has no data, the app will use default categories to recommend to them
@@ -171,6 +176,7 @@ router.get('/recommendations', (req, res) => {
     geoUrl += "&limit=4";
     geoUrl += "&apiKey=" + process.env['GEOAPIFY_KEY'];
     request(geoUrl, { json: true }, async (err, result, body) => {
+      console.log("BODY"+ body);
       if (err) {
         res.error(err);
       }
@@ -184,8 +190,12 @@ router.get('/recommendations', (req, res) => {
       }
       res.json(body);
     });
+    }
+    else {
+      res.json(defaultRecs);
+    }
   });
-});
+});  
 
 router.get('/getFavorites', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

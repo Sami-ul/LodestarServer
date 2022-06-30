@@ -1,0 +1,231 @@
+{
+  "1234567890": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 0,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    }
+  },
+  "178BFBFF00660F51": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 3,
+      "commercial": 1,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    }
+  },
+  "BFEBFBFF000206D7": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 3,
+      "commercial": 4,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": {
+      "510a4407b1932f5ac059b8d3df56dbcd4340f00102f9013a6a33110000000092030e4a656e6e792773204d61726b6574": {
+        "address": "Jenny's Market, 20961 East Smoky Hill Road, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQssl4sfQK-z5tg7tMWKZcWVq1zYtDCPCjCd_cCHQCtXkIWCPXQwgBb_5M&s",
+        "lat": "39.6082562",
+        "lon": "-104.7433893747",
+        "name": "Jenny's Market"
+      },
+      "5163d982948e2f5ac0593ca14da5facd4340f00103f90122742fae00000000920306537562776179": {
+        "address": "Subway, 20941 East Smoky Hill Road, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTMbKmQzbuG1sjny5FBaTVDxQHUBrnWpmpJle9fKjLHuDZsWZYPf52_0w&s",
+        "lat": "39.6092116",
+        "lon": "-104.7430774",
+        "name": "Subway"
+      },
+      "517cd45fafb0385ac0597f2dd772c2cf4340f00103f901cb2a0d3a010000009203124a6572736579204d696b6527732053756273": {
+        "address": "Jersey Mike's Subs, 5137 South Yosemite Street, Greenwood Village, CO 80111, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnpcMt5h7DEcyWu-ssKELzLLM-BqpiXC31pwCnGhD6f-kb-wq6A9X4J8&s",
+        "lat": "39.6231216",
+        "lon": "-104.885784",
+        "name": "Jersey Mike's Subs"
+      },
+      "51cb30ee06d1385ac0594ae3162f16ce4340f00103f901141ce63b010000009203075175697a6e6f73": {
+        "address": "Quiznos, 8775 East Orchard Road, Greenwood Village, CO 80111, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi3jbEte56MdIypc9A6iY6ENIL8YwzwRiSuSf9B4dl4ghctS5uCLcwgj8&s",
+        "lat": "39.610052",
+        "lon": "-104.887758",
+        "name": "Quiznos"
+      }
+    }
+  },
+  "BFEBFBFF000806C2": {
+    "categories": {
+      "accommodation": 1,
+      "catering": 10,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": {
+      "5153c3c8dc46385ac059764ace31c5c84340f00103f901a0b107950000000092030e46697265686f7573652053756273": {
+        "address": "Firehouse Subs, South Chester Street, Centennial, CO 80112, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaWsYxgvPJovH5ig1cuclyx3AoiA2cE6xROcbtUP2rbLP_Rd1LPVKz3wE&s",
+        "lat": "39.5685179",
+        "lon": "-104.8793251",
+        "name": "Firehouse Subs"
+      },
+      "516b3eae0d15385ac05973c6a1269fc84340f00103f901b2b10795000000009203115761686f6f27732046697368205461636f": {
+        "address": "Wahoo's Fish Taco, East County Line Road, Centennial, CO 80112, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThn0h3n1coXAHrhuApUdvQa9Tx4unm0B7vjC8XX3MMQJXzJj9340iBMA&s",
+        "lat": "39.5673569",
+        "lon": "-104.876285",
+        "name": "Wahoo's Fish Taco"
+      },
+      "517116f6b4c3375ac0592cae4ca02dca4340f00103f901a47335970100000092030d4d6172636f27732050697a7a61": {
+        "address": "Marco's Pizza, 10111 Inverness Main Street, Englewood, CO 80112, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTQw68vwrsBNseMomNbVQ2HrNRrpeRE4irIxsvPG-AdjQCifD2Pwg0V7E&s",
+        "lat": "39.5795174",
+        "lon": "-104.87132",
+        "name": "Marco's Pizza"
+      }
+    }
+  },
+  "BFEBFBFF000806E9": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 60,
+      "commercial": 2,
+      "entertainment": 2,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": {
+      "515bcaf962ef3e5ac059f19037024cde4340f00103f901412a62cb00000000920308446f6d696e6f2773": {
+        "address": "Domino's, 1280 Grant Street, Denver, CO 80203, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZSEKt2378fy-WMf_Uu-Dt4yNM6HDRN2tADW2b3zGjvOkzlGJ7D1clOSM&s",
+        "lat": "39.7366946",
+        "lon": "-104.983361",
+        "name": "Domino's"
+      },
+      "51620097b66e3f5ac059e088e3022bdf4340f00103f901696fb60101000000920309486f7420546f706963": {
+        "address": "Hot Topic, 500 16th Street Mall, Denver, CO 80202, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBOwTKVzhcjrFOGriiJY1-lUOuXJI9noNxP1Th8L7Cv-82crsoaAB9yM&s",
+        "lat": "39.7435001",
+        "lon": "-104.9911324",
+        "name": "Hot Topic"
+      },
+      "51bb45bb65623f5ac059f81417e41ddf4340f00103f901daa120300100000092030b4672616e63657363612773": {
+        "address": "Francesca's, 500 16th Street Mall, Denver, CO 80202, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjKGRMWuZJVikD3617lGvfuXsdS9H6Px-v2vnYVCWTE1zfLAl7dH1uh7U&s",
+        "lat": "39.7430997",
+        "lon": "-104.9903807",
+        "name": "Francesca's"
+      },
+      "51c04a4fa2ef3e5ac05929c228a556de4340f00103f901bb8e56cb0000000092030c50616e657261204272656164": {
+        "address": "Panera Bread, 1330 Grant Street, Denver, CO 80203, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzidpdW_sGuncblH4k6d7SexdXrSLEw3Z6PMAbTQLO5vYW97vr8kfcHA&s",
+        "lat": "39.7370192",
+        "lon": "-104.9833761",
+        "name": "Panera Bread"
+      },
+      "51d3bf2495293c5ac05904384e7ff6d54340f00103f9010783eb4e0000000092030c50616e657261204272656164": {
+        "address": "Panera Bread, 2466 South Colorado Boulevard, Denver, CO 80222, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzidpdW_sGuncblH4k6d7SexdXrSLEw3Z6PMAbTQLO5vYW97vr8kfcHA&s",
+        "lat": "39.671585",
+        "lon": "-104.940038",
+        "name": "Panera Bread"
+      }
+    }
+  },
+  "BFEBFBFF000906EA": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 10,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": {
+      "5163d982948e2f5ac0593ca14da5facd4340f00103f90122742fae00000000920306537562776179": {
+        "address": "Subway, 20941 East Smoky Hill Road, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTMbKmQzbuG1sjny5FBaTVDxQHUBrnWpmpJle9fKjLHuDZsWZYPf52_0w&s",
+        "lat": "39.6092116",
+        "lon": "-104.7430774",
+        "name": "Subway"
+      },
+      "518d9b1a683e305ac0598171d1bb67ce4340f00103f9015c9a69dc00000000920308446f6d696e6f2773": {
+        "address": "Domino's, South Himalaya Street, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0tCMTXPnUqQLoTNKpJDZ6PgCXmU8ml8y48AV2BJsINjGLOP31-k2TT7o&s",
+        "lat": "39.6125407",
+        "lon": "-104.753809",
+        "name": "Domino's"
+      },
+      "519ae15009992f5ac0590b65681dfacd4340f00103f9019de01fae0000000092030b50617061204a6f686e2773": {
+        "address": "Papa John's, 20941 East Smoky Hill Road, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzXldo-kD2Gw6ZXCnA26hLMf_77u3CTmo3XtkbvoXHmTtr3c0VOQPBNem&s",
+        "lat": "39.6091954",
+        "lon": "-104.7437156",
+        "name": "Papa John's"
+      },
+      "51cce847c329305ac0597e2b9aaf37ce4340f00103f901010469dc0000000092030c4a696d6d79204a6f686e2773": {
+        "address": "Jimmy John's, 20209 East Smoky Hill Road, Centennial, CO 80015, United States of America",
+        "imgLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEh24gPKX9bMqcxVyH6Y3xng7c83NaNIXC6UUl4UN5Wmnx29unmCcukAg&s",
+        "lat": "39.6110744",
+        "lon": "-104.752549",
+        "name": "Jimmy John's"
+      }
+    }
+  },
+  "TESTSAM": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 0,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": {
+      "3de3243137": {
+        "address": "myhouse",
+        "imgLink": "google",
+        "lat": "43",
+        "lon": "12",
+        "name": "test"
+      }
+    }
+  },
+  "TESTSAMI": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 0,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    }
+  },
+  "testing": {
+    "categories": {
+      "accommodation": 0,
+      "catering": 0,
+      "commercial": 0,
+      "entertainment": 0,
+      "natural": 0,
+      "tourism": 0
+    },
+    "favorites": [
+      null,
+      {
+        "address": "myhouse",
+        "imgLink": "google",
+        "lat": 43,
+        "lon": 12,
+        "name": "test"
+      }
+    ]
+  }
+}

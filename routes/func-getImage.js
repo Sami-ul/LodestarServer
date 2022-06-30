@@ -2,6 +2,7 @@ const qs = require('querystring');
 const fetch = require('node-fetch');
 
 async function getImage(query) {
+  console.log("QUERY" + query);
   const params = {
     q: query.replace("/\s/g", '+'),
     searchType: 'image',
