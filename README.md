@@ -1,6 +1,10 @@
 # Lodestar <img src="https://user-images.githubusercontent.com/72280649/151738750-266236f3-d125-4c55-a18b-3a5e23e5a29f.png" width="40"/>
+##  Made for FBLA 2022 coding and programming, competed at nationals
+| :exclamation:  ALL API KEYS IN THE CODE HAVE BEEN DISABLED DUE TO THE REPO BEING MADE PUBLIC  |
+|-----------------------------------------------------------------------------------------------|
+- Server is off so if you want to use the app start it on your own using `npm install` and `node .`, as well as making an env file for all environment keys that you see in code
 
-# Server is off so if you want to use the app start it on your own using `npm install` and `node .`, as well as making an env file for all environment keys that you see in code
+## Frontend: https://github.com/Aeschyl/Lodestar
 
 ## An app to help users find tourist attractions in Colorado
 
